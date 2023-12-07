@@ -89,7 +89,7 @@ model.load_state_dict(checkpoint['state_dict'], strict=False)
 
 # Set device
 device = torch.device("cuda" if torch.cuda.is_available()
-                      and checkpoint['device'] is "cuda" else "cpu")
+                      and checkpoint['device'] == "cuda" else "cpu")
 model.to(device)
 
 with open(category_names, 'r') as f:
